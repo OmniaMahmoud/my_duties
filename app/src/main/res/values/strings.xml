@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Duties</string>
+
+    <!-- activity_login -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="create_account">Don’t have account?</string>
+    <string name="register">Register</string>
+
+    <!-- images_content_description -->
+    <string name="logo">App Logo</string>
+</resources>
