@@ -4,11 +4,39 @@
     <!-- activity_login -->
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="reset">Reset</string>
     <string name="login">Login</string>
     <string name="or">OR</string>
     <string name="create_account">Don’t have account?</string>
     <string name="register">Register</string>
 
+    <!-- activity_register -->
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="user_name">Username</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <!-- activity_change_password -->
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="save">Save</string>
+
+    <!-- activity_forget_password -->
+    <string name="reset_password">Reset Password</string>
+
+    <!-- activity_update_profile -->
+    <string name="update_profile">Update Profile</string>
+    <string name="update">Update</string>
+
+    <!-- menu_bottom_navigation -->
+    <string name="profile">Profile</string>
+    <string name="my_tasks">My Tasks</string>
+    <string name="stops">Stops</string>
+
     <!-- images_content_description -->
     <string name="logo">App Logo</string>
+    <string name="facebook_login">Login with facebook</string>
+    <string name="google_login">Login with google</string>
 </resources>
