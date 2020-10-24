@@ -10,11 +10,20 @@
     <string name="create_account">Don’t have account?</string>
     <string name="register">Register</string>
 
+    <string name="empty_email_error">Please enter your email</string>
+    <string name="empty_password_error">Please enter your password</string>
+    <string name="email_format_error">Please enter a valid email</string>
+    <string name="password_length_error">Please enter 8 characters or more</string>
+
     <!-- activity_register -->
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="user_name">Username</string>
     <string name="confirm_password">Confirm Password</string>
+
+    <string name="empty_first_name_error">Please enter your first name</string>
+    <string name="empty_last_name_error">Please enter your last name</string>
+    <string name="confirm_password_match_error">Please enter the same password</string>
 
     <!-- activity_change_password -->
     <string name="change_password">Change Password</string>
