@@ -1,16 +1,38 @@
 package com.example.myduties.models;
 
 public class User {
-    private String firstName, lastName, userName, email, password,
+    private String id, firstName, lastName, userName, email, password,
             confirmPassword;
 
-    public User(String firstName, String lastName, String userName, String email, String password, String confirmPassword) {
+    public User(String id, String email){
+        this.id = id;
+        this.email = email;
+    }
+
+    public User(String id, String firstName, String lastName, String userName, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+    }
+
+    public User(String id, String firstName, String lastName, String userName, String email, String password, String confirmPassword) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

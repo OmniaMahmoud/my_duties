@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="android.view.View"/>
         <variable
@@ -13,25 +12,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/login"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                />
-
-        </androidx.appcompat.widget.Toolbar>
+        <include layout="@layout/toolbar_layout"
+            android:id="@+id/toolbar"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -44,21 +26,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tv_or"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/or"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@+id/iv_facebook"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_login"
-                    tools:text="@string/or" />
 
                 <ImageView
                     android:id="@+id/iv_logo"
@@ -84,8 +51,8 @@
                     android:ems="10"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:textSize="14sp"
                     android:text="@={loginViewModel.email}"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/tv_email_error"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -103,8 +70,8 @@
                     android:ems="10"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:textSize="14sp"
                     android:text="@={loginViewModel.password}"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/tv_password_error"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -118,9 +85,9 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="25dp"
+                    android:text="@={loginViewModel.emailError}"
                     android:textColor="@color/red"
                     android:visibility="@{loginViewModel.emailError == null || loginViewModel.emailError.empty ? View.GONE : View.VISIBLE}"
-                    android:text="@={loginViewModel.emailError}"
                     app:layout_constraintBottom_toTopOf="@+id/et_password"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -134,9 +101,9 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="25dp"
+                    android:text="@={loginViewModel.passwordError}"
                     android:textColor="@color/red"
                     android:visibility="@{loginViewModel.passwordError == null || loginViewModel.passwordError.empty ? View.GONE : View.VISIBLE}"
-                    android:text="@={loginViewModel.passwordError}"
                     app:layout_constraintBottom_toTopOf="@+id/btn_login"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -147,17 +114,15 @@
                     android:id="@+id/btn_login"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_margin="20dp"
                     android:background="@color/colorPrimary"
+                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:text="@string/login"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
-                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_or"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_create_account"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -183,63 +148,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="20dp"
+                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"
                     android:text="@string/register"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_create_account"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_google"
-                    app:layout_constraintVertical_bias="1.0"
-                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"/>
-
-                <ImageView
-                    android:id="@+id/iv_facebook"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/facebook_login"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_create_account"
-                    app:layout_constraintEnd_toStartOf="@+id/iv_google"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_or"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/facebook" />
-
-                <ImageView
-                    android:id="@+id/iv_google"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/google_login"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_create_account"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/iv_facebook"
-                    app:layout_constraintTop_toBottomOf="@id/tv_or"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/google" />
+                    app:layout_constraintStart_toEndOf="@+id/tv_create_account" />
 
                 <TextView
                     android:id="@+id/tv_reset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
+                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"
                     android:padding="5dp"
                     android:text="@string/reset"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toTopOf="@+id/et_password"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_password"
-                    android:onClick="@{(v) -> loginViewModel.onClick(v)}"/>
+                    app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

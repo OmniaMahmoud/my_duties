@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/mbn_profile"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/profile"
         android:title="@string/profile"/>
 
     <item
         android:id="@+id/mbn_my_tasks"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/task"
         android:title="@string/my_tasks"/>
 
     <item
         android:id="@+id/mbn_stops"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/stop"
         android:title="@string/stops"/>
 
 </menu>

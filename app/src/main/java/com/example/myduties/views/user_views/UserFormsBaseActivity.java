@@ -1,13 +1,16 @@
-package com.example.myduties;
+package com.example.myduties.views.user_views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myduties.MainActivity;
+import com.example.myduties.R;
 import com.example.myduties.view_models.UserFormsViewModel;
 
 public abstract class UserFormsBaseActivity extends AppCompatActivity implements Observer<Object> {
@@ -72,26 +75,43 @@ public abstract class UserFormsBaseActivity extends AppCompatActivity implements
                     break;
 
             }
-        } else if(object instanceof UserFormsViewModel.FormsClicks){
+        }
+        else if(object instanceof UserFormsViewModel.FormsClicks){
             UserFormsViewModel.FormsClicks formClick =
                     (UserFormsViewModel.FormsClicks) object;
             switch (formClick) {
-                case RESET:
+                case RESET_REDIRECT:
                     navigateToScreen(ForgetPasswordActivity.class);
                     break;
-                case REGISTER:
+                case REGISTER_REDIRECT:
                     navigateToScreen(RegisterActivity.class);
                     break;
-                case LOGIN:
+                case LOGIN_REDIRECT:
+                    navigateToScreen(LoginActivity.class);
+                case HOME_REDIRECT:
                     navigateToScreen(MainActivity.class);
             }
+        }
+        else if(object instanceof UserFormsViewModel.FormsSucceededActions){
+            UserFormsViewModel.FormsSucceededActions action = (UserFormsViewModel.FormsSucceededActions)object;
+            switch (action){
+                case SUCCESS_RESET_PASSWORD:
+                    Toast.makeText(UserFormsBaseActivity.this, R.string.reset_success_message, Toast.LENGTH_LONG).show();
+                    break;
+            }
+        }
+        else if(object instanceof String){
+            String actionFailedMessage = (String) object;
+            Toast.makeText(UserFormsBaseActivity.this, actionFailedMessage, Toast.LENGTH_LONG).show();
         }
 
     }
 
-    private void navigateToScreen(Class toClass){
+    protected void navigateToScreen(Class toClass){
         Intent screenIntent = new Intent(this, toClass);
         startActivity(screenIntent);
     }
+
+    abstract protected void initializeFormFields();
 
 }

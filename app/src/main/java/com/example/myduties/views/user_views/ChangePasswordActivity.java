@@ -1,8 +1,10 @@
-package com.example.myduties;
+package com.example.myduties.views.user_views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.myduties.R;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 

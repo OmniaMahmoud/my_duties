@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">My Duties</string>
 
+    <!-- general_strings -->
+    <string name="network_error">Please check your connection and try again later</string>
+
     <!-- activity_login -->
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -34,6 +37,7 @@
 
     <!-- activity_forget_password -->
     <string name="reset_password">Reset Password</string>
+    <string name="reset_success_message">An email has been sent. Please check your email for the recovery email to reset your password</string>
 
     <!-- activity_update_profile -->
     <string name="update_profile">Update Profile</string>
@@ -43,6 +47,12 @@
     <string name="profile">Profile</string>
     <string name="my_tasks">My Tasks</string>
     <string name="stops">Stops</string>
+
+    <!-- fragment_my_tasks -->
+    <string name="next_phases_title">This screen functionality will be done in the next phases</string>
+    <string name="my_tasks_description">My Tasks is a screen enable users to manage their tasks. \nIt will include the floating action button with plus icon enable user to redirect to the add new task screen. \nIt will contain also a list of created tasks with the task name, description, status and actions to start and stop the task</string>
+    <string name="profile_description">Profile is a screen enable users to manage their profiles like update profile data, change password, logout and view tasks report and charts to enable user follow up his progress</string>
+    <string name="stops_description">Stops is a screen enable users to manage their interruptions and breaks to know the wasted time during the user work</string>
 
     <!-- images_content_description -->
     <string name="logo">App Logo</string>
